@@ -23,9 +23,9 @@ import ProtectedRoute from './components/ProtectedRoute';
 function App() {
   return (
     <div>
-        <BrowserRouter basename="/smartparkingdp2">
+        <AuthContextProvider>
           <Routes>
-            <Route exact path='/smartparkingdp2' element={<Login />} />
+            <Route exact path='/' element={<Login />} />
             <Route
               path='/navbar'
               element={
@@ -68,7 +68,7 @@ function App() {
               }
             />
           </Routes>
-        </BrowserRouter>
+        </AuthContextProvider>
     </div>
   )
 }

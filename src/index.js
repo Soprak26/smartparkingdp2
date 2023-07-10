@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import {BrowserRouter, createBrowserRouter, Route, RouterProvider} from 'react-router-dom'
+import {BrowserRouter, createBrowserRouter, HashRouter, Route, RouterProvider} from 'react-router-dom'
 
 
 //Authentication
@@ -24,9 +24,9 @@ import RequestPlateNumber from './pages_staff/RequestPlateNumber';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <App/>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 
