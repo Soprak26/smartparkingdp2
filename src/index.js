@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import {BrowserRouter, createBrowserRouter, HashRouter, Route, RouterProvider} from 'react-router-dom'
+import { BrowserRouter, createBrowserRouter, HashRouter, Route, RouterProvider } from 'react-router-dom'
 
 
 //Authentication
@@ -23,10 +23,11 @@ import RequestPlateNumber from './pages_staff/RequestPlateNumber';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-
-  <HashRouter>
-    <App/>
-  </HashRouter>
+  <React.StrictMode>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </React.StrictMode>
 );
 
 

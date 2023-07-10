@@ -6,7 +6,7 @@ const ProtectedRoute = ({children}) => {
     const {user} = UserAuth()
 
     if (!user){
-        return <Navigate to='https://soprak26.github.io/smartparkingdp2/'/>
+        return <Navigate to='/'/>
     }
     return children;
 
