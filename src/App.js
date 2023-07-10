@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route
-            path='https://soprak26.github.io/smartparkingdp2/navbar'
+            path='/navbar'
             element={
               <ProtectedRoute>
                 <Navbar />
@@ -36,7 +36,7 @@ function App() {
 
           />
           <Route
-            path='https://soprak26.github.io/smartparkingdp2/addaccount'
+            path='/addaccount'
             element={
               <ProtectedRoute>
                 <AddAccount />
@@ -44,7 +44,7 @@ function App() {
             }
           />
           <Route
-            path='https://soprak26.github.io/smartparkingdp2/attendance'
+            path='/attendance'
             element={
               <ProtectedRoute>
                 <Attendance />
@@ -52,7 +52,7 @@ function App() {
             }
           />
           <Route
-            path='https://soprak26.github.io/smartparkingdp2/database'
+            path='/database'
             element={
               <ProtectedRoute>
                 <Database/>
@@ -60,7 +60,7 @@ function App() {
             }
           />
           <Route
-            path='https://soprak26.github.io/smartparkingdp2/parkedcarlog'
+            path='/parkedcarlog'
             element={
               <ProtectedRoute>
                 <ParkedCarLog/>
