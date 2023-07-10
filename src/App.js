@@ -13,7 +13,7 @@ import RequestPlateNumber from './pages_staff/RequestPlateNumber';
 
 
 import { AuthContextProvider } from "./context/AuthContext";
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, HashRouter } from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute';
 
 
@@ -24,8 +24,8 @@ function App() {
   return (
     <div>
       <AuthContextProvider>
-        <Routes>
-          <Route href='https://soprak26.github.io/' element={<Login />} />
+        <HashRouter>
+          <Route path='/' element={<Login />} />
           <Route
             path='/navbar'
             element={
@@ -68,7 +68,7 @@ function App() {
             }
           />
           
-        </Routes>
+        </HashRouter>
       </AuthContextProvider>
     </div>
   )
