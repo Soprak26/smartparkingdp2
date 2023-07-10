@@ -1,8 +1,8 @@
 {
-  "homepage": "https://soprak26.github.io/smartparkingdp2/",
-  "name": "smart-parking",
+  "homepage": "https://soprak26.github.io/smartparkingdp2",
+  "name": "smartparkingdp2",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@heroicons/react": "v1",
     "@testing-library/jest-dom": "^5.14.1",
