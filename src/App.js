@@ -25,7 +25,7 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Login />} />
             <Route
-              path='/smartparkingdp2/navbar'
+              path='/navbar'
               element={
                 <ProtectedRoute>
                   <Navbar />
@@ -34,7 +34,7 @@ function App() {
 
             />
             <Route
-              path='/smartparkingdp2/addaccount'
+              path='/addaccount'
               element={
                 <ProtectedRoute>
                   <AddAccount />
@@ -42,7 +42,7 @@ function App() {
               }
             />
             <Route
-              path='/smartparkingdp2/attendance'
+              path='/attendance'
               element={
                 <ProtectedRoute>
                   <Attendance />
@@ -50,7 +50,7 @@ function App() {
               }
             />
             <Route
-              path='/smartparkingdp2/database'
+              path='/database'
               element={
                 <ProtectedRoute>
                   <Database />
@@ -58,7 +58,7 @@ function App() {
               }
             />
             <Route
-              path='/smartparkingdp2/parkedcarlog'
+              path='/parkedcarlog'
               element={
                 <ProtectedRoute>
                   <ParkedCarLog />
