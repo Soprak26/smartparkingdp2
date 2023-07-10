@@ -13,7 +13,7 @@ import RequestPlateNumber from './pages_staff/RequestPlateNumber';
 
 
 import { AuthContextProvider } from "./context/AuthContext";
-import { Route, Routes, HashRouter } from 'react-router-dom'
+import { Route, Routes, HashRouter, BrowserRouter } from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute';
 
 
@@ -23,9 +23,9 @@ import ProtectedRoute from './components/ProtectedRoute';
 function App() {
   return (
     <div>
-      <AuthContextProvider>
+        <BrowserRouter basename="/smartparkingdp2">
           <Routes>
-            <Route path='/' element={<Login />} />
+            <Route path='/smartparkingdp2' element={<Login />} />
             <Route
               path='/navbar'
               element={
@@ -67,9 +67,8 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
           </Routes>
-      </AuthContextProvider>
+        </BrowserRouter>
     </div>
   )
 }
