@@ -22,9 +22,13 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
+
+    <><Login/></>
+    /*
     <div>
+      <AuthContextProvider>
         <Routes>
-          <Route href='/' element={<Login />} />
+          <Route href='https://soprak26.github.io/smartparkingdp2/' element={<Login />} />
           <Route
             path='/navbar'
             element={
@@ -68,7 +72,9 @@ function App() {
           />
           
         </Routes>
-    </div>    
+      </AuthContextProvider>
+    </div>
+    */    
   )
 }
 
