@@ -9,8 +9,6 @@ import Attendance from './pages_admin/Attendance';
 import Database from './pages_admin/Database';
 import ParkedCarLog from './pages_admin/ParkedCarLog';
 
-import RequestPlateNumber from './pages_staff/RequestPlateNumber';
-
 
 import { AuthContextProvider } from "./context/AuthContext";
 import { Route, Routes, HashRouter, BrowserRouter } from 'react-router-dom'
