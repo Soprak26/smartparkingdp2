@@ -25,7 +25,7 @@ function App() {
     <div>
         <BrowserRouter basename="/smartparkingdp2">
           <Routes>
-            <Route path='/smartparkingdp2' element={<Login />} />
+            <Route exact path='/smartparkingdp2' element={<Login />} />
             <Route
               path='/navbar'
               element={
