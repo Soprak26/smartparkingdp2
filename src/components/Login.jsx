@@ -16,7 +16,7 @@ const Login = () => {
         setError('')
         try{
             await signIn(email,password)
-            navigate('database')
+            navigate('https://soprak26.github.io/smartparkingdp2/database')
         }catch (e){
             setError(e.message)
             console.log(e.message)

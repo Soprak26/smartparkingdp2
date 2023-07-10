@@ -25,7 +25,7 @@ function App() {
     <div>
       <AuthContextProvider>
         <Routes>
-          <Route path='https://soprak26.github.io/smartparkingdp2/' element={<Login />} />
+          <Route path='/' element={<Login />} />
           <Route
             path='https://soprak26.github.io/smartparkingdp2/navbar'
             element={
