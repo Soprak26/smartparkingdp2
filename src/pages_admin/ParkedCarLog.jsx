@@ -24,4 +24,4 @@ const ParkedCarLog = () => {
   )
 }
 
-export default ParkedCarLog
+export default ParkedCarLog 
