@@ -1,7 +1,10 @@
 import React from 'react'
 import StartFirebase from '../firebaseConfig'
-import {ref,set,get,update,remove,child} from 'firebase/database';
+import {ref,set,get,update,remove,child, getDatabase, onValue} from 'firebase/database';
 
+
+
+const db = StartFirebase();
 
 export class Crud extends React.Component{
 
@@ -84,3 +87,7 @@ export class Crud extends React.Component{
 
 
 }
+
+
+  
+ 

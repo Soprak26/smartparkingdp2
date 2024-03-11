@@ -38,7 +38,6 @@ export class RealtimeDatainDatabase extends React.Component {
       <Table className='container w-75 text-center' bordered striped variant='secondary'>
         <thead>
           <tr>
-
             <th>#</th>
             <th>License Plate</th>
             <th>First Name</th>
@@ -76,7 +75,7 @@ export class RealtimeDatainParkedCarLog extends React.Component {
   }
 
   componentDidMount() {
-    const dbRef = ref(db, 'parkedcarlog');
+    const dbRef = ref(db, '/parkcarlog/date/2024-02-07');
 
     onValue(dbRef, (snapshot) => {
       let records = [];
@@ -98,7 +97,7 @@ export class RealtimeDatainParkedCarLog extends React.Component {
           <tr>
             <th>#</th>
             <th>License Plate</th>
-            <th>Date</th>
+            <th>Name</th>
             <th>Time In</th>
             <th>Time Out</th>
           </tr>
@@ -110,9 +109,9 @@ export class RealtimeDatainParkedCarLog extends React.Component {
               <tr>
                 <td>{index + 1}</td>
                 <td>{row.key}</td>
-                <td>{row.data.date}</td>
-                <td>{row.data.timein}</td>
-                <td>{row.data.timeout}</td>
+                <td>{row.data.name}</td>
+                <td>{row.data.time_in}</td>
+                <td>{row.data.time_out}</td>
               </tr>
             )
           })}
@@ -301,12 +300,8 @@ export class VacantCounter2Vacant extends React.Component {
         <p className='text-center text-2xl font-bold '>Vacant: {value}</p>
       </div>
     );
-  }
+  } 
 }
-
-
-
-
 
 
 

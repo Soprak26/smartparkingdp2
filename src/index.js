@@ -31,59 +31,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 
 
-/*const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App/>,
-  },
-
-  {
-    path: "signup",
-    element: <Signup/>,
-  },
-
-  {
-    path: "login",
-    element: <Login/>,
-  },
-  //ADMIN PAGE * ADMIN PAGE * ADMIN PAGE * ADMIN PAGE
-  {
-    path: "camerafootage",
-    element: <CameraFootage/>,
-  },
-  {
-    path: "addaccount",
-    element: <AddAccount/>,
-  },
-  {
-    path: "database",
-    element: <Database/>,
-  },
-  {
-    path: "attendance",
-    element: <Attendance/>,
-  },
-  {
-    path: "parkedcarlog",
-    element: <ParkedCarLog/>,
-  },
-
-  //STAFF PAGE * STAFF PAGE * STAFF PAGE * STAFF PAGE STAFF PAGE 
-  {
-    path: "camerafootagestaff",
-    element: <CameraFootageStaff/>,
-  },
-  {
-    path: "accountpage",
-    element: <AccountPage/>,
-  },
-  {
-    path: "requestplatenumber",
-    element: <RequestPlateNumber/>,
-  },
-]);
-*/
-
 
 
 
