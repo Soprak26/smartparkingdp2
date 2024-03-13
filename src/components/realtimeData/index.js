@@ -46,7 +46,7 @@ export class RealtimeDatainDatabase extends React.Component {
             <th>Control Panel</th>
           </tr>
         </thead>
-
+        
         <tbody>
           {this.state.tableData.map((row, index) => {
             return (

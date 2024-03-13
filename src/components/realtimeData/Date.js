@@ -63,7 +63,16 @@ export class DateSelector extends React.Component {
   }
 
   handleDownload() {
-    const ws = XLSX.utils.json_to_sheet(this.state.data);
+    // Change property name from 'key' to 'License Plate'
+    const dataForDownload = this.state.data.map(row => {
+      return {
+        'License Plate': row.key,
+        'Name':row.name,
+        'Time In':row.time_in,
+      };
+    });
+  
+    const ws = XLSX.utils.json_to_sheet(dataForDownload);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
   
@@ -77,11 +86,11 @@ export class DateSelector extends React.Component {
   render() {
     return (
       <div>
-          <DatePicker selected={this.state.startDate} onChange={this.handleChange} dateFormat="yyyy-MM-dd" />
+          <DatePicker selected={this.state.startDate} onChange={this.handleChange} dateFormat="yyyy-MM-dd" className="mb-4 p-2 border-2 border-gray-300 rounded-md" />
         {this.state.data.length > 0 && (
           <div><br></br><br></br>
-            <Button onClick={this.handleDownload}>Download as Excel</Button><br></br><br></br>
-            <Table striped bordered hover style={{ margin: '20px 0' }}>
+            <Button onClick={this.handleDownload}>Download as Excel</Button><br></br><br></br><br></br>
+            <Table className='container w-75 text-center' bordered striped variant='secondary'>
             <thead>
             <tr>
               <th>License Plate</th>
