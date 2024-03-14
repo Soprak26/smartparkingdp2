@@ -121,8 +121,7 @@ export class RealtimeDatainParkedCarLog extends React.Component {
   }
 }
 
-
-export class VacantCounter1Cars extends React.Component {
+export class DedicatedWarnLevel extends React.Component {
   state = {
     value: null,
   };
@@ -133,7 +132,7 @@ export class VacantCounter1Cars extends React.Component {
   }
 
   fetchValue = async () => {
-    const dbRef = ref(db, "/vacantcounter1/cars"); // Replace with your desired path
+    const dbRef = ref(db, "/dedicatedWarnLevel/value"); // Replace with your desired path
 
     try {
       const snapshot = await get(dbRef);
@@ -146,7 +145,7 @@ export class VacantCounter1Cars extends React.Component {
     }
   };
   setupAutoUpdate = () => {
-    const valueRef = ref(db, "/vacantcounter1/cars"); // Replace with your desired path
+    const valueRef = ref(db, "/dedicatedWarnLevel/value"); // Replace with your desired path
 
     onValue(valueRef, (snapshot) => {
       if (snapshot.exists()) {
@@ -158,150 +157,35 @@ export class VacantCounter1Cars extends React.Component {
 
   render() {
     const { value } = this.state;
-
-    return (
-      <div className='border-3 border-red-600 bg-red-400  w-[250px] h-[140px] items-center justify-center flex'>
-        <p className='text-center text-2xl font-bold '>Occupied: {value}</p>
-      </div>
-    );
-  }
-}
-
-export class VacantCounter1Vacant extends React.Component {
-  state = {
-    value: null,
-  };
-
-  componentDidMount() {
-    this.fetchValue();
-    this.setupAutoUpdate();
-  }
-
-  fetchValue = async () => {
-    const dbRef = ref(db, "/vacantcounter1/vacant"); // Replace with your desired path
-
-    try {
-      const snapshot = await get(dbRef);
-      if (snapshot.exists()) {
-        const value = snapshot.val();
-        this.setState({ value });
-      }
-    } catch (error) {
-      console.error("Error fetching value from Firebase:", error);
+  
+    let color;
+    let displayValue;
+  
+    if (value == "initial") {
+      color = 'bg-gray-400 border-grey-600';
+      displayValue = 'INITIAL'; // Display 'WARNING' when value is 'initial'
+    } else if (value == "low") {
+      color = 'bg-green-400 border-green-600';
+      displayValue = 'ALL CLEAR';
+    } else if (value == "designated") {
+      color = 'bg-yellow-400 border-yellow-600';
+      displayValue = 'DESIGNATED PARKING';
+    } else if (value == "undesignated") {
+      color = 'bg-red-400 border-red-600';
+      displayValue = 'WARNING';
+    } else {
+      color = 'bg-blue-400 border-blue-600';
+      displayValue = 'LOADING';
     }
-  };
-  setupAutoUpdate = () => {
-    const valueRef = ref(db, "/vacantcounter1/vacant"); // Replace with your desired path
-
-    onValue(valueRef, (snapshot) => {
-      if (snapshot.exists()) {
-        const value = snapshot.val();
-        this.setState({ value });
-      }
-    });
-  };
-
-  render() {
-    const { value } = this.state;
-
+  
     return (
-      <div className='border-3 border-green-600 bg-green-400 w-[250px] h-[140px] items-center justify-center flex'>
-        <p className='text-center text-2xl font-bold '>Vacant: {value}</p>
+      <div className={`border-3 ${color} w-[250px] h-[140px] items-center justify-center flex`}>
+        <p className='text-center text-2xl font-bold '>{displayValue}</p>
       </div>
     );
   }
 }
-
-
-export class VacantCounter2Cars extends React.Component {
-  state = {
-    value: null,
-  };
-
-  componentDidMount() {
-    this.fetchValue();
-    this.setupAutoUpdate();
-  }
-
-  fetchValue = async () => {
-    const dbRef = ref(db, "/vacantcounter2/cars"); // Replace with your desired path
-
-    try {
-      const snapshot = await get(dbRef);
-      if (snapshot.exists()) {
-        const value = snapshot.val();
-        this.setState({ value });
-      }
-    } catch (error) {
-      console.error("Error fetching value from Firebase:", error);
-    }
-  };
-  setupAutoUpdate = () => {
-    const valueRef = ref(db, "/vacantcounter2/cars"); // Replace with your desired path
-
-    onValue(valueRef, (snapshot) => {
-      if (snapshot.exists()) {
-        const value = snapshot.val();
-        this.setState({ value });
-      }
-    });
-  };
-
-  render() {
-    const { value } = this.state;
-
-    return (
-      <div className='border-3 border-red-600 bg-red-400  w-[250px] h-[140px] items-center justify-center flex'>
-        <p className='text-center text-2xl font-bold '>Occupied: {value}</p>
-      </div>
-    );
-  }
-}
-
-export class VacantCounter2Vacant extends React.Component {
-  state = {
-    value: null,
-  };
-
-  componentDidMount() {
-    this.fetchValue();
-    this.setupAutoUpdate();
-  }
-
-  fetchValue = async () => {
-    const dbRef = ref(db, "/vacantcounter2/vacant"); // Replace with your desired path
-
-    try {
-      const snapshot = await get(dbRef);
-      if (snapshot.exists()) {
-        const value = snapshot.val();
-        this.setState({ value });
-      }
-    } catch (error) {
-      console.error("Error fetching value from Firebase:", error);
-    }
-  };
-  setupAutoUpdate = () => {
-    const valueRef = ref(db, "/vacantcounter2/vacant"); // Replace with your desired path
-
-    onValue(valueRef, (snapshot) => {
-      if (snapshot.exists()) {
-        const value = snapshot.val();
-        this.setState({ value });
-      }
-    });
-  };
-
-  render() {
-    const { value } = this.state;
-
-    return (
-      <div className='border-3 border-green-600 bg-green-400 w-[250px] h-[140px] items-center justify-center flex'>
-        <p className='text-center text-2xl font-bold '>Vacant: {value}</p>
-      </div>
-    );
-  } 
-}
+  
 
 
 
