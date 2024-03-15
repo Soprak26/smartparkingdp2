@@ -74,18 +74,25 @@ export class Crud extends React.Component{
     insertData(){
         const db = this.state.db;
         const data = this.getAllInputs();
-
+    
         set(ref(db, 'Database/' + data.platenumber),
         {
             firstname: data.fname,
             lastname: data.lname,
             type: data.types
         })
-        .then(()=>{alert('Record was added successfully')})
+        .then(()=>{
+            alert('Record was added successfully');
+            // Reset the state of the input fields
+            this.setState({
+                platenumber: '',
+                firstname: '',
+                lastname: '',
+                types: ''
+            });
+        })
         .catch((error)=>{alert('There was an error, details: '+error)});
     }
-
-
 }
 
 

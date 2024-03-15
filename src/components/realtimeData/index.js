@@ -4,7 +4,7 @@ import { ref, onValue, get } from 'firebase/database';
 import { Table } from 'react-bootstrap';
 import { CrudPanel } from './CrudPanel';
 import React from 'react';
-
+import 'C:/Users/Amunategui/Desktop/react projects/smart-parking-dp2/src/index.css';
 
 
 const db = StartFirebase();
@@ -39,11 +39,11 @@ export class RealtimeDatainDatabase extends React.Component {
         <thead>
           <tr>
             <th>#</th>
-            <th>License Plate</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Type</th>
-            <th>Control Panel</th>
+            <th className='p-2'>License Plate</th>
+            <th className='p-2'>First Name</th>
+            <th className='p-2'>Last Name</th>
+            <th className='p-2'>Type</th>
+            <th className='p-2'>Control Panel</th>
           </tr>
         </thead>
         
@@ -51,12 +51,12 @@ export class RealtimeDatainDatabase extends React.Component {
           {this.state.tableData.map((row, index) => {
             return (
               <tr key={UniqueNumber++}>
-                <td>{index + 1}</td>
-                <td>{row.key}</td>
-                <td>{row.data.firstname}</td>
-                <td>{row.data.lastname}</td>
-                <td>{row.data.type}</td>
-                <td><CrudPanel platenumber={row.key} record={row.data} /></td>
+                <td className='p-2'>{index + 1}</td>
+                <td className='p-2'>{row.key}</td>
+                <td className='p-2'>{row.data.firstname}</td>
+                <td className='p-2'>{row.data.lastname}</td>
+                <td className='p-2'>{row.data.type}</td>
+                <td className='p-2'><CrudPanel platenumber={row.key} record={row.data} /></td>
               </tr>
             )
           })}
@@ -122,6 +122,7 @@ export class RealtimeDatainParkedCarLog extends React.Component {
 }
 
 export class DedicatedWarnLevel extends React.Component {
+
   state = {
     value: null,
   };
@@ -175,17 +176,16 @@ export class DedicatedWarnLevel extends React.Component {
       displayValue = 'WARNING';
     } else {
       color = 'bg-blue-400 border-blue-600';
-      displayValue = 'LOADING';
+      displayValue = 'PLEASE WAIT';
     }
   
     return (
-      <div className={`border-3 ${color} w-[250px] h-[140px] items-center justify-center flex`}>
-        <p className='text-center text-2xl font-bold '>{displayValue}</p>
+      <div className={`sticky top-0 border-3 ${color} w-[100%] h-[50px] items-center justify-center flex`}>
+        <p className='text-center mt-2.5 text-2xl font-bold '>Dedicated Parking Status: {displayValue}</p>
       </div>
     );
   }
 }
-  
 
 
 
