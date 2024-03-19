@@ -31,11 +31,9 @@ export class CrudPanel extends React.Component {
     render() {
         return (
             <>
-
                 <Button variant='primary' className='ms-2' onClick= {()=>{this.openModal('edit')}}>Edit Record</Button>
-
                 <Modal show={this.state.isOpen}>
-                    <Modal.Header>
+                    <Modal.Header className="d-flex justify-content-between">
                         <Modal.Title>{(this.state.mode == 'add') ? 'Add New Record' : 'Edit Record'}</Modal.Title>
                         <Button size='sm' variant='dark' onClick= {() =>{this.closeModal()}}>X</Button>
                     </Modal.Header>
@@ -194,6 +192,4 @@ export class CrudPanel extends React.Component {
 
         })
     }
-    
-
 }

@@ -121,6 +121,8 @@ export class RealtimeDatainParkedCarLog extends React.Component {
   }
 }
 
+
+
 export class DedicatedWarnLevel extends React.Component {
 
   state = {
@@ -187,6 +189,101 @@ export class DedicatedWarnLevel extends React.Component {
   }
 }
 
+export class VehicleCount extends React.Component {
+
+  state = {
+    value: null,
+  };
+
+  componentDidMount() {
+    this.fetchValue();
+    this.setupAutoUpdate();
+  }
+
+  fetchValue = async () => {
+    const dbRef = ref(db, "/vacantcounter/cars"); // Replace with your desired path
+
+    try {
+      const snapshot = await get(dbRef);
+      if (snapshot.exists()) {
+        const value = snapshot.val();
+        this.setState({ value });
+      }
+    } catch (error) {
+      console.error("Error fetching value from Firebase:", error);
+    }
+  };
+  setupAutoUpdate = () => {
+    const valueRef = ref(db, "/vacantcounter/cars"); // Replace with your desired path
+
+    onValue(valueRef, (snapshot) => {
+      if (snapshot.exists()) {
+        const value = snapshot.val();
+        this.setState({ value });
+      }
+    });
+  };
+
+  render() {
+    const { value } = this.state;
+  
+    let displayValue = value; // Assign the value from the state to displayValue
+  
+    return (
+      <div className={`border-3 bg-red-200 border-red-400 w-[225px] h-[100px] items-center justify-center flex`}>
+        <p className='text-center mt-2.5 text-2xl font-bold '>Vehicle Count: {displayValue}</p>
+      </div>
+    );
+  }
+}
+
+export class VacantSlot extends React.Component {
+
+  state = {
+    value: null,
+  };
+
+  componentDidMount() {
+    this.fetchValue();
+    this.setupAutoUpdate();
+  }
+
+  fetchValue = async () => {
+    const dbRef = ref(db, "/vacantcounter/vacant"); // Replace with your desired path
+
+    try {
+      const snapshot = await get(dbRef);
+      if (snapshot.exists()) {
+        const value = snapshot.val();
+        this.setState({ value });
+      }
+    } catch (error) {
+      console.error("Error fetching value from Firebase:", error);
+    }
+  };
+  setupAutoUpdate = () => {
+    const valueRef = ref(db, "/vacantcounter/vacant"); // Replace with your desired path
+
+    onValue(valueRef, (snapshot) => {
+      if (snapshot.exists()) {
+        const value = snapshot.val();
+        this.setState({ value });
+      }
+    });
+  };
+
+  render() {
+    const { value } = this.state;
+  
+    let displayValue = value; // Assign the value from the state to displayValue
+  
+    return (
+      <div className={`border-3 bg-red-200 border-red-400 w-[225px] h-[100px] items-center justify-center flex`}>
+        <p className='text-center mt-2.5 text-2xl font-bold '>Vacant Slots: {displayValue}</p>
+      </div>
+    );
+  }
+}
 
 
 

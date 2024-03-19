@@ -30,8 +30,9 @@ const Navbar = () => {
                 <div className='flex items-center'>
                     <h1 className='text-4xl font-bold mr-2 sm:text-4xl text-red-700'>Parking Management System</h1>
                     <ul className='hidden text-2xl font-bold mt-3 xl:flex text-center' >
+                        <li><Link className="text-red-700 no-underline" to="/attendance">Camera</Link></li>
                         <li><Link className="text-red-700 no-underline" to="/addaccount">Add Record</Link></li>
-                        <li><Link className="text-red-700 no-underline" to="/database">Database</Link></li>
+                        <li><Link className="text-red-700 no-underline" to="/database">Database</Link></li>                     
                         <li><Link className="text-red-700 no-underline" to="/parkedcarlog">Parked Car Log</Link></li>
                     </ul>
                 </div>
@@ -45,6 +46,7 @@ const Navbar = () => {
             <ul className={!nav ? 'hidden' : ' bg-zinc-200 w-full px-10 font-bold'}>
                 <li></li>
                 <li></li>
+                <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline" to="/attendance">Camera</Link></li>
                 <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline" to="/addaccount">Add Record</Link></li>
                 <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline" to="/database">Database</Link></li>
                 <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline" to="/parkedcarlog">Parked Car Log</Link></li>
