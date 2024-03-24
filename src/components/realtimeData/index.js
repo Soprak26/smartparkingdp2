@@ -165,25 +165,25 @@ export class DedicatedWarnLevel extends React.Component {
     let displayValue;
   
     if (value == "initial") {
-      color = 'bg-gray-400 border-grey-600';
-      displayValue = 'INITIAL'; // Display 'WARNING' when value is 'initial'
+      color = 'bg-gray-400';
+      displayValue = 'INITIAL: Initializing system...'; // Display 'WARNING' when value is 'initial'
     } else if (value == "low") {
-      color = 'bg-green-400 border-green-600';
-      displayValue = 'ALL CLEAR';
+      color = 'bg-green-400';
+      displayValue = 'ALL CLEAR: No cars are parked at designated/reserved parking slots yet';
     } else if (value == "designated") {
-      color = 'bg-yellow-400 border-yellow-600';
-      displayValue = 'DESIGNATED PARKING';
+      color = 'bg-yellow-400 ';
+      displayValue = 'DESIGNATED PARKING: One or more cars are parked at designated/reserved parking slot/s yet the spot owner/s are logged in.';
     } else if (value == "undesignated") {
-      color = 'bg-red-400 border-red-600';
-      displayValue = 'WARNING';
+      color = 'bg-red-400 ';
+      displayValue = 'WARNING: One or more cars are parked at designated/reserved parking slot/s that are not registered to them. Take appropriate action until this status is changed.';
     } else {
-      color = 'bg-blue-400 border-blue-600';
-      displayValue = 'PLEASE WAIT';
+      color = 'bg-blue-400';
+      displayValue = 'PLEASE WAIT...';
     }
   
     return (
-      <div className={`sticky top-0 border-3 ${color} w-[100%] h-[50px] items-center justify-center flex`}>
-        <p className='text-center mt-2.5 text-2xl font-bold '>Dedicated Parking Status: {displayValue}</p>
+      <div className={`sticky top-0 ${color} w-[100%] h-[75px] items-center justify-center flex`}>
+        <p className='text-center mt-2.5 text-2xl font-bold '>{displayValue}</p>
       </div>
     );
   }
@@ -230,8 +230,9 @@ export class VehicleCount extends React.Component {
     let displayValue = value; // Assign the value from the state to displayValue
   
     return (
-      <div className={`border-3 bg-red-200 border-red-400 w-[225px] h-[100px] items-center justify-center flex`}>
-        <p className='text-center mt-2.5 text-2xl font-bold '>Vehicle Count: {displayValue}</p>
+      <div className={`border-3 border-gray-400 bg-gray-300 w-[225px] h-[125px]  items-center justify-center flex flex-col`}>
+        <p className='text-center mt-3 text-2xl font-bold '>Vehicle Count:</p>
+        <p className='text-center text-4xl font-bold '>{displayValue}</p>
       </div>
     );
   }
@@ -278,8 +279,9 @@ export class VacantSlot extends React.Component {
     let displayValue = value; // Assign the value from the state to displayValue
   
     return (
-      <div className={`border-3 bg-red-200 border-red-400 w-[225px] h-[100px] items-center justify-center flex`}>
-        <p className='text-center mt-2.5 text-2xl font-bold '>Vacant Slots: {displayValue}</p>
+      <div className={`border-3 border-green-400 bg-green-300 w-[225px] h-[125px]  items-center justify-center flex flex-col`}>
+        <p className='text-center mt-3 text-2xl font-bold '>Vacant Slots:</p>
+        <p className='text-center text-4xl font-bold '>{displayValue}</p>
       </div>
     );
   }

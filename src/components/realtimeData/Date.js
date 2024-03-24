@@ -201,8 +201,6 @@ export class CurrentDate extends React.Component {
   
     return (
       <div>
-        <h5 className = 'text-center mt-2'>TODAY IS:</h5>
-        <h3 className = 'text-center '>{formattedDate}</h3> {/* Add this line */}
         {this.state.data.length > 0 ? (
           <div><br></br><br></br>
             <Button onClick={this.handleDownload}>Download as Excel</Button><br></br><br></br><br></br>
@@ -241,3 +239,38 @@ export class CurrentDate extends React.Component {
     );
   }
 }
+
+
+
+export class JustDate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      startDate: new Date(),
+      data: [],
+    };
+  }
+
+  componentDidMount() {
+    // Fetch data for the current date
+    this.fetchData(this.state.startDate);
+  }
+  
+  fetchData(date) {
+    // Format date as 'yyyy/mm/dd' in local time
+    const formattedDate = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+  }
+  
+  render() {
+    // Format the date as 'yyyy-mm-dd'
+    const formattedDate = this.state.startDate.toISOString().split('T')[0];
+  
+    return (
+      <div>
+        <h5 className = 'text-center mt-2'>TODAY IS:</h5>
+        <h3 className = 'text-center '>{formattedDate}</h3> {/* Add this line */}
+      </div>
+    );
+  }
+}
+

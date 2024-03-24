@@ -28,12 +28,12 @@ const Navbar = () => {
         <div className='w-screen h-[100px] z-10 bg-zinc-200 drop-shadow-sm'>
             <div className='px-2 flex justify-between items-center w-full h-full'>
                 <div className='flex items-center'>
-                    <h1 className='text-4xl font-bold mr-2 sm:text-4xl text-red-700'>Parking Management System</h1>
-                    <ul className='hidden text-2xl font-bold mt-3 xl:flex text-center' >
-                        <li><Link className="text-red-700 no-underline" to="/attendance">Camera</Link></li>
-                        <li><Link className="text-red-700 no-underline" to="/addaccount">Add Record</Link></li>
-                        <li><Link className="text-red-700 no-underline" to="/database">Database</Link></li>                     
-                        <li><Link className="text-red-700 no-underline" to="/parkedcarlog">Parked Car Log</Link></li>
+                    <h1 className='text-4xl font-bold mr-2 mt-2 sm:text-3xl text-red-700'><Link className="text-red-700 no-underline hover:text-blue-500" to="/attendance">Parking Management System</Link></h1>
+                    <ul className='hidden hover:text-blue-500 text-2xl font-bold mt-3 xl:flex text-center' >
+                        <li className="border-r  border-gray-400 pr-4"><Link className="text-red-700 no-underline hover:text-blue-500" to="/attendance">Home</Link></li>
+                        <li className="border-r  border-gray-400 pr-4"><Link className="text-red-700 no-underline hover:text-blue-500" to="/addaccount">Add Record</Link></li>
+                        <li className="border-r  border-gray-400 pr-4"><Link className="text-red-700 no-underline hover:text-blue-500" to="/database">Database</Link></li>                     
+                        <li className="border-r  border-gray-400 pr-4"><Link className="text-red-700 no-underline hover:text-blue-500" to="/parkedcarlog">Parked Car Log</Link></li>
                     </ul>
                 </div>
                 <div className='hidden xl:flex'>
@@ -46,10 +46,11 @@ const Navbar = () => {
             <ul className={!nav ? 'hidden' : ' bg-zinc-200 w-full px-10 font-bold'}>
                 <li></li>
                 <li></li>
-                <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline" to="/attendance">Camera</Link></li>
-                <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline" to="/addaccount">Add Record</Link></li>
-                <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline" to="/database">Database</Link></li>
-                <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline" to="/parkedcarlog">Parked Car Log</Link></li>
+                <li></li>
+                <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline hover:text-blue-500" to="/attendance">Home</Link></li>
+                <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline hover:text-blue-500" to="/addaccount">Add Record</Link></li>
+                <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline hover:text-blue-500" to="/database">Database</Link></li>
+                <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline hover:text-blue-500" to="/parkedcarlog">Parked Car Log</Link></li>
                 <div className='flex flex-col my-4 pr-4'>
                     <button onClick={handleLogout} className='mt-4 border-none bg-red-700 text-white font-bold px-20 py-3 hover:bg-red-800 hover:text-white'>Logout</button>
                 </div>
