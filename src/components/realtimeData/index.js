@@ -2,7 +2,7 @@
 import StartFirebase from '../firebaseConfig/index';
 import { ref, onValue, get } from 'firebase/database';
 import { Table } from 'react-bootstrap';
-import { CrudPanel } from './CrudPanel';
+import { CrudPanel, CrudPanelDPS } from './CrudPanel';
 import React from 'react';
 import 'C:/Users/Amunategui/Desktop/react projects/smart-parking-dp2/src/index.css';
 
@@ -66,7 +66,7 @@ export class RealtimeDatainDatabase extends React.Component {
   }
 }
 
-export class RealtimeDatainParkedCarLog extends React.Component {
+export class RealtimeDatainDPSDatabase extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -75,7 +75,7 @@ export class RealtimeDatainParkedCarLog extends React.Component {
   }
 
   componentDidMount() {
-    const dbRef = ref(db, '/parkcarlog/date/2024-02-07');
+    const dbRef = ref(db, '/dedicated');
 
     onValue(dbRef, (snapshot) => {
       let records = [];
@@ -83,12 +83,11 @@ export class RealtimeDatainParkedCarLog extends React.Component {
         let keyName = childSnapshot.key;
         let data = childSnapshot.val();
         records.push({ "key": keyName, "data": data });
-
       });
       this.setState({ tableData: records });
     });
-
   }
+
 
   render() {
     return (
@@ -96,22 +95,26 @@ export class RealtimeDatainParkedCarLog extends React.Component {
         <thead>
           <tr>
             <th>#</th>
-            <th>License Plate</th>
-            <th>Name</th>
-            <th>Time In</th>
-            <th>Time Out</th>
+            <th className='p-2'>License Plate</th>
+            <th className='p-2'>X1</th>
+            <th className='p-2'>X2</th>
+            <th className='p-2'>Y1</th>
+            <th className='p-2'>Y2</th>
+            <th className='p-2'>Control Panel</th>
           </tr>
         </thead>
-
+        
         <tbody>
           {this.state.tableData.map((row, index) => {
             return (
-              <tr>
-                <td>{index + 1}</td>
-                <td>{row.key}</td>
-                <td>{row.data.name}</td>
-                <td>{row.data.time_in}</td>
-                <td>{row.data.time_out}</td>
+              <tr key={UniqueNumber++}>
+                <td className='p-2'>{index + 1}</td>
+                <td className='p-2'>{row.key}</td>
+                <td className='p-2'>{row.data.x1}</td>
+                <td className='p-2'>{row.data.x2}</td>
+                <td className='p-2'>{row.data.y1}</td>
+                <td className='p-2'>{row.data.y2}</td>
+                <td className='p-2'><CrudPanelDPS platenumber={row.key} record={row.data} /></td>
               </tr>
             )
           })}
@@ -182,8 +185,8 @@ export class DedicatedWarnLevel extends React.Component {
     }
   
     return (
-      <div className={`sticky top-0 ${color} w-[100%] h-[75px] items-center justify-center flex`}>
-        <p className='text-center mt-2.5 text-2xl font-bold '>{displayValue}</p>
+      <div className={`sticky top-0 ${color} w-[100%] h-[55px] items-center justify-center flex`}>
+        <p className='text-center mt-2 text-xl font-bold '>{displayValue}</p>
       </div>
     );
   }

@@ -10,7 +10,7 @@ import Login from './components/Login'
 import Signup from './components/Signup';
 
 //ADMIN PAGE * ADMIN PAGE * ADMIN PAGE * ADMIN PAGE
-import CameraFootage from './pages_admin/CameraFootage';
+import DedicatedParkingSpace from './pages_admin/DedicatedParkingSpace';
 import AddAccount from './pages_admin/AddAccount';
 import Database from './pages_admin/Database';
 import Attendance from './pages_admin/Attendance';

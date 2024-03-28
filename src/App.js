@@ -8,14 +8,12 @@ import AddAccount from './pages_admin/AddAccount';
 import Attendance from './pages_admin/Attendance';
 import Database from './pages_admin/Database';
 import ParkedCarLog from './pages_admin/ParkedCarLog';
+import DedicatedParkingSpace from './pages_admin/DedicatedParkingSpace';
 
 
 import { AuthContextProvider } from "./context/AuthContext";
 import { Route, Routes, HashRouter, BrowserRouter } from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute';
-
-
-
 
 
 function App() {
@@ -62,6 +60,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <ParkedCarLog />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path='/dps'
+              element={
+                <ProtectedRoute>
+                  <DedicatedParkingSpace />
                 </ProtectedRoute>
               }
             />

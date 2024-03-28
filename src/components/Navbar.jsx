@@ -4,9 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from "react-router-dom"
 import { UserAuth } from '../context/AuthContext';
 
-
-
-
 const Navbar = () => {
     const [nav, setNav] = useState(false)
     const handleClick = () => setNav(!nav)
@@ -28,11 +25,19 @@ const Navbar = () => {
         <div className='w-screen h-[100px] z-10 bg-zinc-200 drop-shadow-sm'>
             <div className='px-2 flex justify-between items-center w-full h-full'>
                 <div className='flex items-center'>
-                    <h1 className='text-4xl font-bold mr-2 mt-2 sm:text-3xl text-red-700'><Link className="text-red-700 no-underline hover:text-blue-500" to="/attendance">Parking Management System</Link></h1>
+                <h1 className='text-3xl font-bold mr-2 mt-2 sm:text-3xl text-red-700'>
+                    <Link className="text-red-700 no-underline hover:text-blue-500" to="/attendance">
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div>Parking Management</div>
+                            <div>System</div>
+                        </div>
+                    </Link>
+                </h1>
                     <ul className='hidden hover:text-blue-500 text-2xl font-bold mt-3 xl:flex text-center' >
                         <li className="border-r  border-gray-400 pr-4"><Link className="text-red-700 no-underline hover:text-blue-500" to="/attendance">Home</Link></li>
                         <li className="border-r  border-gray-400 pr-4"><Link className="text-red-700 no-underline hover:text-blue-500" to="/addaccount">Add Record</Link></li>
-                        <li className="border-r  border-gray-400 pr-4"><Link className="text-red-700 no-underline hover:text-blue-500" to="/database">Database</Link></li>                     
+                        <li className="border-r  border-gray-400 pr-4"><Link className="text-red-700 no-underline hover:text-blue-500" to="/database">Database</Link></li>
+                        <li className="border-r  border-gray-400 pr-4"><Link className="text-red-700 no-underline hover:text-blue-500" to="/dps">DPS</Link></li>                     
                         <li className="border-r  border-gray-400 pr-4"><Link className="text-red-700 no-underline hover:text-blue-500" to="/parkedcarlog">Parked Car Log</Link></li>
                     </ul>
                 </div>
