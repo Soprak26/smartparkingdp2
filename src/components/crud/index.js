@@ -150,7 +150,12 @@ export class CrudDedicatedParkSpace extends React.Component{
                 <br/>
 
                 <button id="addBtn" className='ms-2 bg-sky-600 rounded-lg w-250px p-2.5 justify-center' onClick={this.interface}>Add Data</button>
+                <p className = 'text-center text-md text-bold py-4 mt-3 font-bold' >Note: When adding new dedicated parking space, 
+                restart the Parking Detection Application in Jetson Orin Nano by closing and reopening it. 
+                Before adding a dedicated space, make sure that the camera is at fixed angle. 
+                Refer to the documentation before adding a spot.</p>
             </div>
+            
         )
     }
     interface(event){

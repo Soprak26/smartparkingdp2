@@ -48,18 +48,24 @@ export class RealtimeDatainDatabase extends React.Component {
         </thead>
         
         <tbody>
-          {this.state.tableData.map((row, index) => {
-            return (
-              <tr key={UniqueNumber++}>
-                <td className='p-2'>{index + 1}</td>
-                <td className='p-2'>{row.key}</td>
-                <td className='p-2'>{row.data.firstname}</td>
-                <td className='p-2'>{row.data.lastname}</td>
-                <td className='p-2'>{row.data.type}</td>
-                <td className='p-2'><CrudPanel platenumber={row.key} record={row.data} /></td>
-              </tr>
-            )
-          })}
+          {this.state.tableData.length > 0 ? (
+            this.state.tableData.map((row, index) => {
+              return (
+                <tr key={UniqueNumber++}>
+                  <td className='p-2'>{index + 1}</td>
+                  <td className='p-2'>{row.key}</td>
+                  <td className='p-2'>{row.data.firstname}</td>
+                  <td className='p-2'>{row.data.lastname}</td>
+                  <td className='p-2'>{row.data.type}</td>
+                  <td className='p-2'><CrudPanel platenumber={row.key} record={row.data} /></td>
+                </tr>
+              )
+            })
+          ) : (
+            <tr>
+              <td colSpan="6" className='p-2'>No data available in table</td>
+            </tr>
+          )}
         </tbody>
       </Table>
     )

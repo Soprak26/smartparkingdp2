@@ -87,38 +87,48 @@ export class DateSelector extends React.Component {
   }
 
   render() {
+    // Sort data array by 'time_in' property
+    const sortedData = [...this.state.data].sort((a, b) => {
+      // Assuming 'time_in' is a string in the format 'HH:mm:ss'
+      const aTime = new Date(`1970-01-01T${a.time_in}Z`);
+      const bTime = new Date(`1970-01-01T${b.time_in}Z`);
+      return aTime - bTime;
+    });
+  
     return (
       <div>
-          <DatePicker selected={this.state.startDate} onChange={this.handleChange} dateFormat="yyyy-MM-dd" className="mb-4 p-2 border-2 border-gray-300 rounded-md bigDatePicker" />
-        {this.state.data.length > 0 ? (
+        <DatePicker selected={this.state.startDate} onChange={this.handleChange} dateFormat="yyyy-MM-dd" className="mb-4 p-2 border-2 border-gray-300 rounded-md bigDatePicker" />
+        {sortedData.length > 0 ? (
           <div><br></br><br></br>
             <Button onClick={this.handleDownload}>Download as Excel</Button><br></br><br></br><br></br>
             <Table className='container w-75 text-center' bordered striped variant='secondary'>
-            <thead>
-            <tr>
-              <th>License Plate</th>
-              <th>Name</th>
-              <th>Time In</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((row, index) => (
-              <tr key={index}>
-                <td>{row.key}</td>
-                <td>{row.name}</td>
-                <td>{row.time_in}</td>
-                <td>
-                  <Button
-                    variant="danger"
-                    onClick={() => this.handleRemoveRow(index, row.key)}
-                  >
-                    Remove
-                  </Button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>License Plate</th>
+                  <th>Name</th>
+                  <th>Time In</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedData.map((row, index) => (
+                  <tr key={index}>
+                    <td className='p-2'>{index + 1}</td>
+                    <td>{row.key}</td>
+                    <td>{row.name}</td>
+                    <td>{row.time_in}</td>
+                    <td>
+                      <Button
+                        variant="danger"
+                        onClick={() => this.handleRemoveRow(index, row.key)}
+                      >
+                        Remove
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </Table>
           </div>
         ) : (
@@ -128,7 +138,6 @@ export class DateSelector extends React.Component {
     );
   }
 }
-
 
 export class CurrentDate extends React.Component {
   constructor(props) {
@@ -199,45 +208,57 @@ export class CurrentDate extends React.Component {
     // Format the date as 'yyyy-mm-dd'
     const formattedDate = this.state.startDate.toISOString().split('T')[0];
   
+    // Sort data array by 'time_in' property
+    const sortedData = [...this.state.data].sort((a, b) => {
+      // Assuming 'time_in' is a string in the format 'HH:mm:ss'
+      const aTime = new Date(`1970-01-01T${a.time_in}Z`);
+      const bTime = new Date(`1970-01-01T${b.time_in}Z`);
+      return aTime - bTime;
+    });
+  
     return (
       <div>
-        {this.state.data.length > 0 ? (
+        {sortedData.length > 0 ? (
           <div><br></br><br></br>
             <Button onClick={this.handleDownload}>Download as Excel</Button><br></br><br></br><br></br>
             <Table className='container w-75 text-center' bordered striped variant='secondary'>
-            <thead>
-            <tr>
-              <th>License Plate</th>
-              <th>Name</th>
-              <th>Time In</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((row, index) => (
-              <tr key={index}>
-                <td>{row.key}</td>
-                <td>{row.name}</td>
-                <td>{row.time_in}</td>
-                <td>
-                  <Button
-                    variant="danger"
-                    onClick={() => this.handleRemoveRow(index, row.key)}
-                  >
-                    Remove
-                  </Button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>License Plate</th>
+                  <th>Name</th>
+                  <th>Time In</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedData.map((row, index) => (
+                  <tr key={index}>
+                    <td className='p-2'>{index + 1}</td>
+                    <td>{row.key}</td>
+                    <td>{row.name}</td>
+                    <td>{row.time_in}</td>
+                    <td>
+                      <Button
+                        variant="danger"
+                        onClick={() => this.handleRemoveRow(index, row.key)}
+                      >
+                        Remove
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </Table>
           </div>
         ) : (
-          <p className = 'text-center text-md text-bold py-4 mt-3 font-bold' >There is no data available for today's date.</p>
+          <p className = 'text-center text-md text-bold py-4 mt-3 font-bold'>There is no data available for today's date.</p>
         )}
       </div>
     );
   }
+  
+  
 }
 
 
