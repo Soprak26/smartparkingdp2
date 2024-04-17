@@ -51,10 +51,10 @@ const Navbar = () => {
             <ul className={!nav ? 'hidden' : ' bg-zinc-200 w-full px-10 font-bold'}>
                 <li></li>
                 <li></li>
-                <li></li>
                 <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline hover:text-blue-500" to="/attendance">Home</Link></li>
                 <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline hover:text-blue-500" to="/addaccount">Add Record</Link></li>
                 <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline hover:text-blue-500" to="/database">Database</Link></li>
+                <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline hover:text-blue-500" to="/dps">DPS</Link></li>
                 <li className='border-b-4 border-zinc-300 w-full text-xl text-bold'><Link className="text-red-700 no-underline hover:text-blue-500" to="/parkedcarlog">Parked Car Log</Link></li>
                 <div className='flex flex-col my-4 pr-4'>
                     <button onClick={handleLogout} className='mt-4 border-none bg-red-700 text-white font-bold px-20 py-3 hover:bg-red-800 hover:text-white'>Logout</button>
