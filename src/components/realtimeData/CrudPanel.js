@@ -202,12 +202,16 @@ export class CrudPanelDPS extends React.Component {
             isOpen: false,
             record: {
                 platenumber: props.platenumber,
+                Slotdes: props.record.designation,
+                Slotnum: props.record.slotnum,
                 Xx1: props.record.x1,
                 xX2: props.record.x2,
                 yY1: props.record.y1,
                 yY2: props.record.y2
             },
             modPlatenumber: '',
+            modslotDes: '',
+            modslotNum: '',
             modxX1: '',
             modXx2: '',
             modYy1: '',
@@ -234,6 +238,20 @@ export class CrudPanelDPS extends React.Component {
                                 value={this.state.modPlatenumber}
                                 onChange={e => { this.setState({ modPlatenumber: e.target.value }) }}
                                 disabled={(this.state.mode != 'add')}
+                            />
+                        </InputGroup>
+                        <InputGroup>
+                            <InputGroup.Text>Slot Designation</InputGroup.Text>
+                            <Form.Control
+                                value={this.state.modslotDes}
+                                onChange={e => { this.setState({ modslotDes: e.target.value }) }}
+                            />
+                        </InputGroup>
+                        <InputGroup>
+                            <InputGroup.Text>Slot Number</InputGroup.Text>
+                            <Form.Control
+                                value={this.state.modslotNum}
+                                onChange={e => { this.setState({ modslotNum: e.target.value }) }}
                             />
                         </InputGroup>
     
@@ -287,6 +305,8 @@ export class CrudPanelDPS extends React.Component {
                 isOpen: true,
                 mode: option, 
                 modPlatenumber:'',
+                modslotDes:'',
+                modslotNum:'',
                 modxX1:'',
                 modXx2:'',
                 modYy1:'',
@@ -300,6 +320,8 @@ export class CrudPanelDPS extends React.Component {
                 isOpen: true,
                 mode: option,
                 modPlatenumber: rec.platenumber,
+                modslotDes: rec.Slotdes,
+                modslotNum: rec.Slotnum,
                 modxX1: rec.Xx1,
                 modXx2: rec.xX2,
                 modYy1: rec.yY1,
@@ -317,6 +339,8 @@ export class CrudPanelDPS extends React.Component {
         return{
             id: this.state.modPlatenumber,
             data:{
+                designation: this.state.modslotDes,
+                slotnum: this.state.modslotNum,
                 x1: this.state.modxX1,
                 x2: this.state.modXx2,
                 y1: this.state.modYy1,

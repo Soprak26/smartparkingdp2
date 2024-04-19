@@ -103,6 +103,8 @@ export class CrudDedicatedParkSpace extends React.Component{
         this.state = {
             db:'',
             platenumber:'',
+            SlotDes:'',
+            SlotNum:'',
             X1:'',
             X2:'',
             Y1:'',
@@ -125,6 +127,15 @@ export class CrudDedicatedParkSpace extends React.Component{
                 onChange={e=>{this.setState({platenumber:e.target.value});}}/>
                 <br/>
 
+                <label class='font-bold'>Slot Designation</label>
+                <input type='text' id='fnbox' class="bg-gray-50 border border-gray-300 text-gray-900 text-md font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-20px p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={this.state.designation} 
+                onChange={e=>{this.setState({designation:e.target.value});}}/>
+                <br/>
+
+                <label class='font-bold'>Slot Number</label>
+                <input type='number' id='fnbox' class="bg-gray-50 border border-gray-300 text-gray-900 text-md font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-20px p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={this.state.slotnum} 
+                onChange={e=>{this.setState({slotnum:e.target.value});}}/>
+                <br/>
 
                 <label class='font-bold'>X1:</label>
                 <input type='number' id='fnbox' class="bg-gray-50 border border-gray-300 text-gray-900 text-md font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-20px p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={this.state.x1} 
@@ -168,6 +179,8 @@ export class CrudDedicatedParkSpace extends React.Component{
     getAllInputs(){
         return{
             platenumber: this.state.platenumber,
+            SlotDes: this.state.designation,
+            SlotNum: this.state.slotnum,
             X1: this.state.x1,
             X2: this.state.x2,
             Y1: this.state.y1,
@@ -180,6 +193,8 @@ export class CrudDedicatedParkSpace extends React.Component{
     
         set(ref(db, 'dedicated/' + data.platenumber),
         {
+            designation: data.SlotDes,
+            slotnum: data.SlotNum,
             x1: data.X1,
             x2: data.X2,
             y1: data.Y1,
@@ -190,6 +205,8 @@ export class CrudDedicatedParkSpace extends React.Component{
             // Reset the state of the input fields
             this.setState({
                 platenumber: '',
+                designation: '',
+                slotnum: '',
                 x1: '',
                 x2: '',
                 y1: '',

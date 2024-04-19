@@ -102,6 +102,8 @@ export class RealtimeDatainDPSDatabase extends React.Component {
           <tr>
             <th>#</th>
             <th className='p-2'>License Plate</th>
+            <th className='p-2'>Slot Designation</th>
+            <th className='p-2'>Slot Number</th>
             <th className='p-2'>X1</th>
             <th className='p-2'>X2</th>
             <th className='p-2'>Y1</th>
@@ -116,6 +118,8 @@ export class RealtimeDatainDPSDatabase extends React.Component {
               <tr key={UniqueNumber++}>
                 <td className='p-2'>{index + 1}</td>
                 <td className='p-2'>{row.key}</td>
+                <td className='p-2'>{row.data.designation}</td>
+                <td className='p-2'>{row.data.slotnum}</td>
                 <td className='p-2'>{row.data.x1}</td>
                 <td className='p-2'>{row.data.x2}</td>
                 <td className='p-2'>{row.data.y1}</td>
