@@ -2,10 +2,11 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import "C:/Users/Amunategui/Desktop/react projects/smart-parking-dp2/src/index.css"
-import { getDatabase, ref, remove, onValue } from 'firebase/database';
+import { getDatabase, ref, remove, onValue, push, update } from 'firebase/database';
 import { Table, Button } from 'react-bootstrap';
 import StartFirebase from '../firebaseConfig';
 import * as XLSX from 'xlsx';
+import { CrudDS } from './CrudPanel';
 
 const db = StartFirebase();
 
@@ -257,8 +258,6 @@ export class CurrentDate extends React.Component {
       </div>
     );
   }
-  
-  
 }
 
 
